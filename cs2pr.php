@@ -28,7 +28,7 @@ foreach($root as $file) {
         $line = (string) $error['line'];
         $message = (string) $error['message'];
 
-        annotateCheck($type, relativePath($filename), $line, $message);
+        annotateCheck(annotateType($type), relativePath($filename), $line, $message);
     }
 }
 
@@ -44,4 +44,8 @@ function annotateCheck($type, $filename, $line, $message) {
 
 function relativePath($path) {
     return str_replace(getcwd().'/', '', $path);
+}
+
+function annotateType($type) {
+    return in_array($type, ['error', 'failure']) ? 'error' : 'warning';
 }
