@@ -10,7 +10,7 @@
   },
   "authors" : [
     {
-      "name" : "Markus staab"
+      "name" : "Markus Staab"
     }
   ],
   "bin" : ["cs2pr"]
