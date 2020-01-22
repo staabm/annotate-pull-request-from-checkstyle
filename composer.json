@@ -1,0 +1,17 @@
+{
+  "name": "staabm/annotate-pull-request-from-checkstyle",
+  "license" : "BSD-3-Clause",
+  "require" : {
+    "php"          : "^7.0",
+    "ext-simplexml" : "*"
+  },
+  "require-dev" : {
+    "phpunit/phpunit" : "^7.0"
+  },
+  "authors" : [
+    {
+      "name" : "Markus staab"
+    }
+  ],
+  "bin" : ["cs2pr.php"]
+}
