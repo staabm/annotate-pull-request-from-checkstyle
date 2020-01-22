@@ -1,6 +1,6 @@
 {
   "name": "staabm/annotate-pull-request-from-checkstyle",
-  "license" : "BSD-3-Clause",
+  "license" : "MIT",
   "require" : {
     "php"          : "^7.0",
     "ext-simplexml" : "*"
