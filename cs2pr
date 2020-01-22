@@ -15,9 +15,10 @@ if ($argc === 1) {
     echo "cs2pr $version\n";
     echo "Annotate a Github Pull Request based on a Checkstyle XML-report.\n";
     echo "Usage: ". $argv[0] ." <filename>\n";
-    exit(1);
+    exit(9);
 }
 
+$exit = 0;
 $root = simplexml_load_string($xml);
 
 foreach($root as $file) {
@@ -29,8 +30,11 @@ foreach($root as $file) {
         $message = (string) $error['message'];
 
         annotateCheck(annotateType($type), relativePath($filename), $line, $message);
+        $exit = 1;
     }
 }
+
+exit($exit);
 
 /**
  * @param 'error'|'warning' $type
