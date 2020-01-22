@@ -14,3 +14,7 @@ Turns checkstyle based XML-Reports into Github Pull Request Annotations via the 
 `psalm --output-format=checkstyle | vendor/bin/cs2pr`
 
 `php-cs-fixer --format=checkstyle | vendor/bin/cs2pr`
+
+# Idea
+
+This script is based on a suggestion of [Benjamin Eberlei](https://twitter.com/beberlei/status/1218970454557372416)
