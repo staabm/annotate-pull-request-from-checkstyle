@@ -14,7 +14,7 @@ if ($argc === 1) {
 } else {
     echo "cs2pr $version\n";
     echo "Annotate a Github Pull Request based on a Checkstyle XML-report.\n";
-    echo "Usage: php ". $argv[0] ." <filename>\n";
+    echo "Usage: ". $argv[0] ." <filename>\n";
     exit(1);
 }
 
