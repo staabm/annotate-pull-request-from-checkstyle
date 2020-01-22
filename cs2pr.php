@@ -1,6 +1,10 @@
 #!/usr/bin/env php
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 'stderr');
+gc_disable();
+
 $version = '1.0-dev';
 
 if ($argc === 1) {
