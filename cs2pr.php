@@ -26,7 +26,6 @@ foreach($root as $file) {
 
         annotateCheck($type, $filename, $line, $message);
     }
-    exit();
 }
 
 /**
