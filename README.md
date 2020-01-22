@@ -12,3 +12,5 @@ Turns checkstyle based XML-Reports into Github Pull Request Annotations via the 
 `phpstan analyse --no-progress --error-format=checkstyle | vendor/bin/cs2pr`
 
 `psalm --output-format=checkstyle | vendor/bin/cs2pr`
+
+`php-cs-fixer --format=checkstyle | vendor/bin/cs2pr`
