@@ -4,8 +4,7 @@
 $version = '1.0-dev';
 
 if ($argc === 1) {
-    $handle = fopen(STDIN, 'r');
-    $xml = stream_get_contents($handle);
+    $xml = stream_get_contents(STDIN);
 } elseif ($argc === 2 && file_exists($argv[1])) {
     $xml = file_get_contents($argv[1]);
 } else {
