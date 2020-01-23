@@ -14,6 +14,8 @@ Install the binary via composer
 
 # Example Usage
 
+Run one of the following commands within your GithubAction workflow
+
 ## Process a checkstyle formated file
 
 `vendor/bin/cs2pr /path/to/checkstyle-report.xml`
