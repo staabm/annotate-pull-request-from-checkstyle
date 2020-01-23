@@ -66,7 +66,7 @@ jobs:
                 coverage: none # disable xdebug, pcov
           - run: |
                 composer install # install your apps dependencies
-                composer require staabm/annotate-pull-request-from-checkstyle
+                composer require staabm/annotate-pull-request-from-checkstyle # install cs2pr
                 vendor/bin/phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 ```
 
