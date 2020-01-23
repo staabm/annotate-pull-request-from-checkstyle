@@ -24,7 +24,7 @@ composer require staabm/annotate-pull-request-from-checkstyle
 Run one of the following commands within your GithubAction workflow:
 
 Example GithubAction workflow
-```toml
+```
 # ...
 
 jobs:
