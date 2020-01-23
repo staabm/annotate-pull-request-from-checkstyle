@@ -6,8 +6,18 @@ Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixe
 
 ![PHPUnit Action Matcher Context Example](https://github.com/mheap/phpunit-github-actions-printer/blob/master/phpunit-printer-context.png?raw=true)
 
+# Installation
+
+Install the binary via composer
+`composer require staabm/annotate-pull-request-from-checkstyle`
 
 # Example Usage
+
+## Process a checkstyle formated file
+
+`vendor/bin/cs2pr /path/to/checkstyle-report.xml`
+
+## Pipe the output of another commmand
 
 `phpstan analyse --no-progress --error-format=checkstyle | vendor/bin/cs2pr`
 
@@ -18,3 +28,5 @@ Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixe
 # Idea
 
 This script is based on a suggestion of [Benjamin Eberlei](https://twitter.com/beberlei/status/1218970454557372416)
+
+The Code is inspired by https://github.com/mheap/phpunit-github-actions-printer
