@@ -3,6 +3,10 @@
 Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/doc/checkstyle.xsd) into Github Pull Request [Annotations via the Checks API](https://developer.github.com/v3/checks/).
 This script is meant for use within your GithubAction.
 
+That means you no longer search thru your GithubAction logfiles. 
+No need to interpret messages which are formatted differently with every tool.
+Instead you can focus on your Pull Request, and you don't need to leave the Pull Request area.
+
 ![Logs Example](https://github.com/mheap/phpunit-github-actions-printer/blob/master/phpunit-printer-logs.png?raw=true)
 
 ![Context Example](https://github.com/mheap/phpunit-github-actions-printer/blob/master/phpunit-printer-context.png?raw=true)
