@@ -6,7 +6,7 @@ This script is meant for use within your GithubAction.
 ![Logs Example](https://github.com/mheap/phpunit-github-actions-printer/blob/master/phpunit-printer-logs.png?raw=true)
 
 ![Context Example](https://github.com/mheap/phpunit-github-actions-printer/blob/master/phpunit-printer-context.png?raw=true)
-Images from https://github.com/mheap/phpunit-github-actions-printer)
+_Images from https://github.com/mheap/phpunit-github-actions-printer_
 
 # Installation
 
