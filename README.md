@@ -63,7 +63,6 @@ jobs:
             uses: shivammathur/setup-php@v1
             with:
                 php-version: 7.3
-                extensions: intl
                 coverage: none # disable xdebug, pcov
           - run: |
                 composer install # install your apps dependencies
