@@ -1,6 +1,7 @@
 # Annotate a Github Pull Request based on a Checkstyle XML-report
 
 Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/doc/checkstyle.xsd) into Github Pull Request [Annotations via the Checks API](https://developer.github.com/v3/checks/).
+This script is meant for use within your GithubAction.
 
 ![PHPUnit Action Matcher Logs Example](https://github.com/mheap/phpunit-github-actions-printer/blob/master/phpunit-printer-logs.png?raw=true)
 
