@@ -11,7 +11,9 @@ _Images from https://github.com/mheap/phpunit-github-actions-printer_
 # Installation
 
 Install the binary via composer
-`composer require staabm/annotate-pull-request-from-checkstyle`
+```bash
+composer require staabm/annotate-pull-request-from-checkstyle
+```
 
 # Example Usage
 
@@ -19,15 +21,25 @@ Run one of the following commands within your GithubAction workflow
 
 ## Process a checkstyle formated file
 
-`vendor/bin/cs2pr /path/to/checkstyle-report.xml`
+```bash
+vendor/bin/cs2pr /path/to/checkstyle-report.xml
+```
 
 ## Pipe the output of another commmand
 
-`phpstan analyse --no-progress --error-format=checkstyle | vendor/bin/cs2pr`
+```bash
+phpstan analyse --no-progress --error-format=checkstyle | vendor/bin/cs2pr
+```
 
-`psalm --output-format=checkstyle | vendor/bin/cs2pr`
+```bash
+psalm --output-format=checkstyle | vendor/bin/cs2pr`
+```
 
-`php-cs-fixer --format=checkstyle | vendor/bin/cs2pr`
+```bash
+php-cs-fixer --format=checkstyle | vendor/bin/cs2pr
+```
+
+Works for __any__ command which produces a checkstyle-formatted report.
 
 # Idea
 
