@@ -38,7 +38,7 @@ phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 
 Using [Psalm](https://github.com/vimeo/psalm)
 ```bash
-psalm --output-format=checkstyle | vendor/bin/cs2pr`
+psalm --output-format=checkstyle | vendor/bin/cs2pr
 ```
 
 Using [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
