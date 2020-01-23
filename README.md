@@ -32,7 +32,7 @@ vendor/bin/cs2pr /path/to/checkstyle-report.xml
 ## Pipe the output of another commmand
 
 ```bash
-phpstan analyse --no-progress --error-format=checkstyle | vendor/bin/cs2pr
+phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 ```
 
 ```bash
