@@ -23,28 +23,6 @@ composer require staabm/annotate-pull-request-from-checkstyle
 
 Run one of the following commands within your GithubAction workflow:
 
-Example GithubAction workflow
-```
-# ...
-
-jobs:
-    phpstan-analysis:
-      name: phpstan static code analysis
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v2
-          - name: Setup PHP
-            uses: shivammathur/setup-php@v1
-            with:
-                php-version: 7.3
-                extensions: intl
-                coverage: none # disable xdebug, pcov
-          - run: |
-                composer install # install your apps dependencies
-                composer require staabm/annotate-pull-request-from-checkstyle
-                vendor/bin/phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
-```
-
 ## Process a checkstyle formated file
 
 ```bash
@@ -69,6 +47,29 @@ php-cs-fixer --format=checkstyle | vendor/bin/cs2pr
 ```
 
 ... works for __any__ command which produces a checkstyle-formatted report.
+
+## Example GithubAction workflow
+
+```
+# ...
+
+jobs:
+    phpstan-analysis:
+      name: phpstan static code analysis
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v2
+          - name: Setup PHP
+            uses: shivammathur/setup-php@v1
+            with:
+                php-version: 7.3
+                extensions: intl
+                coverage: none # disable xdebug, pcov
+          - run: |
+                composer install # install your apps dependencies
+                composer require staabm/annotate-pull-request-from-checkstyle
+                vendor/bin/phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
+```
 
 # Idea
 
