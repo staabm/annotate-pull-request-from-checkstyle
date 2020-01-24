@@ -29,8 +29,15 @@ if ($argc === 1) {
     exit(9);
 }
 
+$root = @simplexml_load_string($xml);
+
+if (!$root) {
+    $errors = libxml_get_errors();
+    fwrite(STDERR, $errors[0]->message.' on line '.$errors[0]->line.', column '.$errors[0]->column);
+    exit(2);
+}
+
 $exit = 0;
-$root = simplexml_load_string($xml);
 
 if($root) {
     foreach($root as $file) {
