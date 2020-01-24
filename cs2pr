@@ -1,6 +1,17 @@
 #!/usr/bin/env php
 <?php
 
+/*
+ * Turns checkstyle based XML-Reports into Github Pull Request Annotations via the Checks API. This script is meant for use within your GithubAction.
+ *
+ * (c) Markus Staab <markus.staab@redaxo.org>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * https://github.com/staabm/annotate-pull-request-from-checkstyle
+ */
+
 error_reporting(E_ALL);
 ini_set('display_errors', 'stderr');
 gc_disable();
