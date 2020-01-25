@@ -48,6 +48,14 @@ php-cs-fixer --format=checkstyle | vendor/bin/cs2pr
 
 ... works for __any__ command which produces a checkstyle-formatted report.
 
+## phpunit support?
+
+PHPUnit does not support checkstyle, therefore cs2pr will not work for you.
+
+you might instead try
+- a [problem matcher](https://github.com/shivammathur/setup-php#problem-matchers)
+- [phpunit-github-actions-printer](https://github.com/mheap/phpunit-github-actions-printer)
+
 ## Example GithubAction workflow
 
 ```
