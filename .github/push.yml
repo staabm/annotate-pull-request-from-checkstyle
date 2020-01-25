@@ -23,14 +23,14 @@ jobs:
           coverage: none # disable xdebug, pcov
       - run: |
           # negative tests
-          - php cs2pr tests/fail/invalid.xml         > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
-          - php cs2pr tests/fail/multiple-suites.xml > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
-          - php cs2pr tests/fail/empty.xml           > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
+          php cs2pr tests/fail/invalid.xml         > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
+          php cs2pr tests/fail/multiple-suites.xml > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
+          php cs2pr tests/fail/empty.xml           > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
 
           # positive tests, expecting exit-code 1 to signal checkstyle errors to the calling process
-          - php cs2pr.php tests/succeed/minimal.xml > out.xml; lintstatus=$?; if [ $lintstatus -ne  1 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
-          - diff out.xml tests/succeed/minimal.expect        ; lintstatus=$?; if [ $lintstatus -ne  0 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
+          php cs2pr.php tests/succeed/minimal.xml > out.xml; lintstatus=$?; if [ $lintstatus -ne  1 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
+          diff out.xml tests/succeed/minimal.expect        ; lintstatus=$?; if [ $lintstatus -ne  0 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
 
           # positive tests, expecting exit-code 0 to signal no-checkstyle-issues to the calling process
-          - php cs2pr.php tests/noerrors/only-header.xml > out.xml; lintstatus=$?; if [ $lintstatus -ne  0 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
-          - diff out.xml tests/noerrors/only-header.expect        ; lintstatus=$?; if [ $lintstatus -ne  0 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
+          php cs2pr.php tests/noerrors/only-header.xml > out.xml; lintstatus=$?; if [ $lintstatus -ne  0 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
+          diff out.xml tests/noerrors/only-header.expect        ; lintstatus=$?; if [ $lintstatus -ne  0 ]; then echo "expected fail, got $lintstatus" && exit 50; fi
