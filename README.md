@@ -31,17 +31,22 @@ vendor/bin/cs2pr /path/to/checkstyle-report.xml
 
 ## Pipe the output of another commmand
 
-Using [PHPStan](https://github.com/phpstan/phpstan)
+### Using [PHPStan](https://github.com/phpstan/phpstan)
 ```bash
 phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 ```
 
-Using [Psalm](https://github.com/vimeo/psalm)
+### Using [Psalm](https://github.com/vimeo/psalm)
 ```bash
 psalm --output-format=checkstyle | vendor/bin/cs2pr
 ```
 
-Using [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+_Psalm even supports the required format natively, therefore you might even use this instead:_
+```bash
+psalm --output-format=github
+```
+
+### Using [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 ```bash
 php-cs-fixer --format=checkstyle | vendor/bin/cs2pr
 ```
