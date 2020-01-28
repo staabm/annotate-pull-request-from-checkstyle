@@ -21,9 +21,11 @@ composer require staabm/annotate-pull-request-from-checkstyle
 
 # Example Usage
 
+`cs2pr` can be used on a already existing checkstyle-report xml-file. Alternatively you might use it in the unix-pipe notation to chain it into your existing cli command.
+
 Run one of the following commands within your GithubAction workflow:
 
-## Process a checkstyle formated file
+## Process a checkstyle formatted file
 
 ```bash
 vendor/bin/cs2pr /path/to/checkstyle-report.xml
