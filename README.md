@@ -72,8 +72,8 @@ phpcs --report=checkstyle /path/to/code | vendor/bin/cs2pr
 PHPUnit does not support checkstyle, therefore cs2pr will not work for you.
 
 you might instead try
-- a [problem matcher](https://github.com/shivammathur/setup-php#problem-matchers)
-- [phpunit-github-actions-printer](https://github.com/mheap/phpunit-github-actions-printer)
+- a [phpunit problem matcher](https://github.com/shivammathur/setup-php#problem-matchers)
+- a [phpunit-github-actions-printer](https://github.com/mheap/phpunit-github-actions-printer)
 
 ## Example GithubAction workflow
 
@@ -96,6 +96,10 @@ jobs:
                 composer require staabm/annotate-pull-request-from-checkstyle # install cs2pr
                 vendor/bin/phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 ```
+
+# Resources 
+
+[GithubAction Problem Matchers](https://github.com/actions/toolkit/blob/master/docs/problem-matchers.md)
 
 # Idea
 
