@@ -32,11 +32,11 @@ if ($argc === 1) {
 $exit = 0;
 $root = simplexml_load_string($xml);
 
-if($root) {
-    foreach($root as $file) {
+if ($root) {
+    foreach ($root as $file) {
         $filename = (string)$file['name'];
 
-        foreach($file as $error) {
+        foreach ($file as $error) {
             $type = (string) $error['severity'];
             $line = (string) $error['line'];
             $message = (string) $error['message'];
@@ -55,14 +55,17 @@ exit($exit);
  * @param int $line
  * @param string $message
  */
-function annotateCheck($type, $filename, $line, $message) {
+function annotateCheck($type, $filename, $line, $message)
+{
     echo "::{$type} file={$filename},line={$line}::{$message}\n";
 }
 
-function relativePath($path) {
+function relativePath($path)
+{
     return str_replace(getcwd().'/', '', $path);
 }
 
-function annotateType($type) {
+function annotateType($type)
+{
     return in_array($type, ['error', 'failure']) ? 'error' : 'warning';
 }
