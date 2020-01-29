@@ -1,9 +1,11 @@
 # Annotate a Pull Request based on a Checkstyle XML-report
 
+[![Continuous Integration](https://github.com/staabm/annotate-pull-request-from-checkstyle/workflows/Continuous%20Integration/badge.svg)](https://github.com/staabm/annotate-pull-request-from-checkstyle/actions)
+
 Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/doc/checkstyle.xsd) into Github Pull Request [Annotations via the Checks API](https://developer.github.com/v3/checks/).
 This script is meant for use within your GithubAction.
 
-That means you no longer search thru your GithubAction logfiles. 
+That means you no longer search thru your GithubAction logfiles.
 No need to interpret messages which are formatted differently with every tool.
 Instead you can focus on your Pull Request, and you don't need to leave the Pull Request area.
 
@@ -97,7 +99,7 @@ jobs:
                 vendor/bin/phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 ```
 
-# Resources 
+# Resources
 
 [GithubAction Problem Matchers](https://github.com/actions/toolkit/blob/master/docs/problem-matchers.md)
 
