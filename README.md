@@ -83,6 +83,7 @@ you might instead try
 If you're using `shivammathur/setup-php` to setup PHP, `cs2pr` binary is shipped within:
 
 ```
+# ...
 jobs:
     phpstan-analysis:
       name: phpstan static code analysis
@@ -103,6 +104,7 @@ jobs:
 If you're use a custom PHP installation, then your project needs to require `staabm/annotate-pull-request-from-checkstyle`
 
 ```
+# ...
 jobs:
     phpstan-analysis:
       name: phpstan static code analysis
