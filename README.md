@@ -101,7 +101,7 @@ jobs:
                 vendor/bin/phpstan analyse --error-format=checkstyle | cs2pr
 ```
 
-If you're use a custom PHP installation, then your project needs to require `staabm/annotate-pull-request-from-checkstyle`
+If you use a custom PHP installation, then your project needs to require `staabm/annotate-pull-request-from-checkstyle`
 
 ```yml
 # ...
