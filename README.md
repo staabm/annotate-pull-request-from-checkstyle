@@ -71,7 +71,7 @@ phpcs --report=checkstyle /path/to/code | vendor/bin/cs2pr
 
 ## phpunit support?
 
-PHPUnit does not support checkstyle, therefore cs2pr will not work for you.
+PHPUnit does not support checkstyle, therefore `cs2pr` will not work for you.
 
 you might instead try
 - a [phpunit problem matcher](https://github.com/shivammathur/setup-php#problem-matchers)
