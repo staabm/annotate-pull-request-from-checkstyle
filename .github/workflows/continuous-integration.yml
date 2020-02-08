@@ -55,7 +55,13 @@ jobs:
           php-version: "7.0"
 
           # negative tests
-      - run: php cs2pr tests/fail/invalid.xml         > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  "2" ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
+      - run: |
+          php cs2pr tests/fail/invalid.xml         > /dev/null 2>&1 ;
+          lintstatus=$?;
+          if [ $lintstatus -ne  "2" ]; then
+            echo "expected 2, got $lintstatus"
+            exit 50;
+          fi
       - run: php cs2pr tests/fail/multiple-suites.xml > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
       - run: php cs2pr tests/fail/empty.xml           > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
       
