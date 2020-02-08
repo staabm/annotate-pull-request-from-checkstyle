@@ -54,11 +54,11 @@ jobs:
           extensions: "simplexml"
           php-version: "7.0"
 
-      - run: |
           # negative tests
-          php cs2pr tests/fail/invalid.xml         > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
-          php cs2pr tests/fail/multiple-suites.xml > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
-          php cs2pr tests/fail/empty.xml           > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
+      - run: php cs2pr tests/fail/invalid.xml         > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
+      - run: php cs2pr tests/fail/multiple-suites.xml > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
+      - run: php cs2pr tests/fail/empty.xml           > /dev/null 2>&1 ; lintstatus=$?; if [ $lintstatus -ne  2 ]; then echo "expected 2, got $lintstatus" && exit 50; else exit 0; fi
+      
       - run: |
           # positive tests, expecting exit-code 1 to signal checkstyle errors to the calling process
           php cs2pr.php tests/errors/minimal.xml > out.xml; lintstatus=$?; if [ $lintstatus -ne  1 ]; then echo "expected 1, got $lintstatus" && exit 50; else exit 0; fi
