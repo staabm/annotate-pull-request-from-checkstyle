@@ -21,6 +21,7 @@ $finder = PhpCsFixer\Finder::create()
 return PhpCsFixer\Config::create()
     ->setFinder($finder)
     ->setRules([
+        '@PSR2' => true,
         'header_comment' => [
             'commentType' => 'comment',
             'header' => $header,

@@ -66,14 +66,17 @@ exit($exit);
  * @param int $line
  * @param string $message
  */
-function annotateCheck($type, $filename, $line, $message) {
+function annotateCheck($type, $filename, $line, $message)
+{
     echo "::{$type} file={$filename},line={$line}::{$message}\n";
 }
 
-function relativePath($path) {
+function relativePath($path)
+{
     return str_replace(getcwd().'/', '', $path);
 }
 
-function annotateType($type) {
+function annotateType($type)
+{
     return in_array($type, ['error', 'failure']) ? 'error' : 'warning';
 }

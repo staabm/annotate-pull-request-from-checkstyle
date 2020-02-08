@@ -71,7 +71,7 @@ phpcs --report=checkstyle /path/to/code | vendor/bin/cs2pr
 
 ## phpunit support?
 
-PHPUnit does not support checkstyle, therefore cs2pr will not work for you.
+PHPUnit does not support checkstyle, therefore `cs2pr` will not work for you.
 
 you might instead try
 - a [phpunit problem matcher](https://github.com/shivammathur/setup-php#problem-matchers)
@@ -79,9 +79,11 @@ you might instead try
 
 ## Example GithubAction workflow
 
-```
-# ...
 
+If you're using `shivammathur/setup-php` to setup PHP, `cs2pr` binary is shipped within:
+
+```yml
+# ...
 jobs:
     phpstan-analysis:
       name: phpstan static code analysis
@@ -93,6 +95,24 @@ jobs:
             with:
                 php-version: 7.3
                 coverage: none # disable xdebug, pcov
+                tools: cs2pr
+          - run: |
+                composer install # install your apps dependencies
+                vendor/bin/phpstan analyse --error-format=checkstyle | cs2pr
+```
+
+If you use a custom PHP installation, then your project needs to require `staabm/annotate-pull-request-from-checkstyle`
+
+```yml
+# ...
+jobs:
+    phpstan-analysis:
+      name: phpstan static code analysis
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v2
+          - name: Setup PHP
+            run: # custom PHP installation 
           - run: |
                 composer install # install your apps dependencies
                 composer require staabm/annotate-pull-request-from-checkstyle # install cs2pr
