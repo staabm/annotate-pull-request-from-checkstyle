@@ -45,10 +45,10 @@ if (!$root) {
 
 $exit = 0;
 
-foreach($root as $file) {
+foreach ($root as $file) {
     $filename = (string)$file['name'];
 
-    foreach($file as $error) {
+    foreach ($file as $error) {
         $type = (string) $error['severity'];
         $line = (string) $error['line'];
         $message = (string) $error['message'];
