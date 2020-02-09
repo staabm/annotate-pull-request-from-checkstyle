@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'stderr');
 gc_disable();
 
-$version = '1.0-dev';
+$version = '1.0.2';
 
 if ($argc === 1) {
     $xml = stream_get_contents(STDIN);
@@ -29,21 +29,32 @@ if ($argc === 1) {
     exit(9);
 }
 
+$root = @simplexml_load_string($xml);
+
+if (!$root) {
+    $errors = libxml_get_errors();
+    if ($errors) {
+        fwrite(STDERR, $errors[0]->message.' on line '.$errors[0]->line.', column '.$errors[0]->column);
+    } elseif (stripos($xml, '<?xml') !== 0) {
+        fwrite(STDERR, 'expecting xml stream starting with a xml opening tag.');
+    } else {
+        fwrite(STDERR, 'unknown error. expecting checkstyle formatted xml input.');
+    }
+    exit(2);
+}
+
 $exit = 0;
-$root = simplexml_load_string($xml);
 
-if ($root) {
-    foreach ($root as $file) {
-        $filename = (string)$file['name'];
+foreach ($root as $file) {
+    $filename = (string)$file['name'];
 
-        foreach ($file as $error) {
-            $type = (string) $error['severity'];
-            $line = (string) $error['line'];
-            $message = (string) $error['message'];
+    foreach ($file as $error) {
+        $type = (string) $error['severity'];
+        $line = (string) $error['line'];
+        $message = (string) $error['message'];
 
-            annotateCheck(annotateType($type), relativePath($filename), $line, $message);
-            $exit = 1;
-        }
+        annotateCheck(annotateType($type), relativePath($filename), $line, $message);
+        $exit = 1;
     }
 }
 
