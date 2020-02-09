@@ -31,7 +31,7 @@ if ($argc === 1) {
 
 $root = @simplexml_load_string($xml);
 
-if (!$root) {
+if ($root === false) {
     $errors = libxml_get_errors();
     if ($errors) {
         fwrite(STDERR, $errors[0]->message.' on line '.$errors[0]->line.', column '.$errors[0]->column);
