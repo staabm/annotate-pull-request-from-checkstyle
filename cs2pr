@@ -30,7 +30,7 @@ if ($argc === 1) {
 }
 
 // enable user error handling
-libxml_use_internal_errors(true)
+libxml_use_internal_errors(true);
 
 $root = @simplexml_load_string($xml);
 
