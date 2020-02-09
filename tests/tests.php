@@ -11,7 +11,8 @@
  * https://github.com/staabm/annotate-pull-request-from-checkstyle
  */
 
-function testXml($xmlPath, $expectedExit, $expectedOutput = null){
+function testXml($xmlPath, $expectedExit, $expectedOutput = null)
+{
     exec('cat '.$xmlPath .' | php '. __DIR__ .'/../cs2pr 2>&1', $output, $exit);
     $output = implode("\n", $output);
 
