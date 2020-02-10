@@ -6,14 +6,17 @@ jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
       with:
         ref: ${{ github.head_ref }}
 
-    - name: Run php-cs-fixer
-      uses: docker://oskarstark/php-cs-fixer-ga
+    - name: "Install dependencies with composer"
+      run: "composer install --no-interaction --no-progress --no-suggest"
 
-    - uses: stefanzweifel/git-auto-commit-action@v3.0.0
+    - name: "Run friendsofphp/php-cs-fixer"
+      run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose"
+
+    - uses: stefanzweifel/git-auto-commit-action@v2.5.0
       with:
         commit_message: Apply php-cs-fixer changes
         branch: ${{ github.head_ref }}
