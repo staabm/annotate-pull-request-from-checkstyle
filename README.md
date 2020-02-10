@@ -1,6 +1,7 @@
 # Annotate a Pull Request based on a Checkstyle XML-report
 
 [![Continuous Integration](https://github.com/staabm/annotate-pull-request-from-checkstyle/workflows/Continuous%20Integration/badge.svg)](https://github.com/staabm/annotate-pull-request-from-checkstyle/actions)
+[![Continuous Deployment](https://github.com/staabm/annotate-pull-request-from-checkstyle/workflows/Continuous%20Deployment/badge.svg)](https://github.com/staabm/annotate-pull-request-from-checkstyle/actions)
 
 Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/doc/checkstyle.xsd) into Github Pull Request [Annotations via the Checks API](https://developer.github.com/v3/checks/).
 This script is meant for use within your GithubAction.
