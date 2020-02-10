@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
     - '**.php'
+    - 'cs2pr'
 
 jobs:
   php-cs-fixer:
