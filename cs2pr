@@ -18,8 +18,7 @@ gc_disable();
 
 $version = '1.0.4';
 
-if ($argc === 1) 
-{
+if ($argc === 1) {
     $xml = stream_get_contents(STDIN);
 } elseif ($argc === 2 && file_exists($argv[1])) {
     $xml = file_get_contents($argv[1]);
