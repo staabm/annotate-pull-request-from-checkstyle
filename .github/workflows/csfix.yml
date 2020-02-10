@@ -1,6 +1,9 @@
-name: Format PHP
+name: Auto Format PHP
 
-on: pull_request
+on:
+  pull_request:
+    paths:
+    - '**.php'
 
 jobs:
   php-cs-fixer:
@@ -10,6 +13,11 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: 7.0
+        
     - name: "Install dependencies with composer"
       run: "composer install --no-interaction --no-progress --no-suggest"
 
