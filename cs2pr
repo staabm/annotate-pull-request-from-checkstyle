@@ -37,11 +37,11 @@ $root = @simplexml_load_string($xml);
 if ($root === false) {
     $errors = libxml_get_errors();
     if ($errors) {
-        fwrite(STDERR, rtrim($errors[0]->message).' on line '.$errors[0]->line.', column '.$errors[0]->column ."\n");
+        fwrite(STDERR, 'Error: '. rtrim($errors[0]->message).' on line '.$errors[0]->line.', column '.$errors[0]->column ."\n\n");
     } elseif (stripos($xml, '<?xml') !== 0) {
-        fwrite(STDERR, 'expecting xml stream starting with a xml opening tag.' ."\n");
+        fwrite(STDERR, 'Error: Expecting xml stream starting with a xml opening tag.' ."\n\n");
     } else {
-        fwrite(STDERR, 'unknown error. expecting checkstyle formatted xml input.' ."\n");
+        fwrite(STDERR, 'Error: unknown error. expecting checkstyle formatted xml input.' ."\n\n");
     }
     fwrite(STDERR, $xml);
     
