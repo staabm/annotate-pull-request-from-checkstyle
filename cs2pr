@@ -41,7 +41,7 @@ if ($root === false) {
     } elseif (stripos($xml, '<?xml') !== 0) {
         fwrite(STDERR, 'Error: Expecting xml stream starting with a xml opening tag.' ."\n\n");
     } else {
-        fwrite(STDERR, 'Error: unknown error. expecting checkstyle formatted xml input.' ."\n\n");
+        fwrite(STDERR, 'Error: Unknown error. Expecting checkstyle formatted xml input.' ."\n\n");
     }
     fwrite(STDERR, $xml);
     
