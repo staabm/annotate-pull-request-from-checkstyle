@@ -37,7 +37,7 @@ function testXml($xmlPath, $expectedExit, $expectedOutput = null)
 
 
 testXml(__DIR__.'/fail/empty.xml', 2, "expecting xml stream starting with a xml opening tag.");
-testXml(__DIR__.'/fail/invalid.xml', 2, file_get_contents(__DIR__.'/fail/invalid.xml'));
+testXml(__DIR__.'/fail/invalid.xml', 2, "Start tag expected, '<' not found on line 1, column 1\n" .file_get_contents(__DIR__.'/fail/invalid.xml'));
 
 testXml(__DIR__.'/fail/multiple-suites.xml', 2, file_get_contents(__DIR__.'/fail/multiple-suites.xml'));
 
