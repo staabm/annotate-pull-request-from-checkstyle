@@ -36,10 +36,10 @@ function testXml($xmlPath, $expectedExit, $expectedOutput = null)
 }
 
 
-testXml(__DIR__.'/fail/empty.xml', 2);
-testXml(__DIR__.'/fail/invalid.xml', 2);
+testXml(__DIR__.'/fail/empty.xml', 2, "Error: Expecting xml stream starting with a xml opening tag.\n");
+testXml(__DIR__.'/fail/invalid.xml', 2, "Error: Start tag expected, '<' not found on line 1, column 1\n\n" .file_get_contents(__DIR__.'/fail/invalid.xml'));
 
-testXml(__DIR__.'/fail/multiple-suites.xml', 2);
+testXml(__DIR__.'/fail/multiple-suites.xml', 2, "Error: Extra content at the end of the document on line 8, column 1\n\n" .file_get_contents(__DIR__.'/fail/multiple-suites.xml'));
 
 testXml(__DIR__.'/errors/minimal.xml', 1, file_get_contents(__DIR__.'/errors/minimal.expect'));
 
