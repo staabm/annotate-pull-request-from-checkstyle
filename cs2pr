@@ -37,7 +37,7 @@ $root = @simplexml_load_string($xml);
 if ($root === false) {
     $errors = libxml_get_errors();
     if ($errors) {
-        fwrite(STDERR, $errors[0]->message.' on line '.$errors[0]->line.', column '.$errors[0]->column ."\n");
+        fwrite(STDERR, rtrim($errors[0]->message).' on line '.$errors[0]->line.', column '.$errors[0]->column ."\n");
     } elseif (stripos($xml, '<?xml') !== 0) {
         fwrite(STDERR, 'expecting xml stream starting with a xml opening tag.' ."\n");
     } else {
