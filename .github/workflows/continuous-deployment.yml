@@ -16,28 +16,17 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2"
-
-      - name: "Determine tag"
-        id: "determine-tag"
-        run: "echo \"::set-output name=tag::${GITHUB_REF#refs/tags/}\""
-
-      - name: "Create release"
-        id: "create-release"
-        uses: "actions/create-release@v1"
-        env:
-          GITHUB_TOKEN: "${{ secrets.STAABM_TOKEN }}"
-        with:
-          draft: false
-          prerelease: false
-          release_name: "${{ steps.determine-tag.outputs.tag }}"
-          tag_name: "${{ steps.determine-tag.outputs.tag }}"
+        
+      - name: "Get upload_url"
+        run: echo "::set-output name=upload_url::https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$(jq --raw-output '.release.id' $GITHUB_EVENT_PATH)/assets{?name,label}"  
+        id: release
 
       - name: "Upload cs2pr"
         uses: "actions/upload-release-asset@v1"
         env:
-          GITHUB_TOKEN: "${{ secrets.STAABM_TOKEN }}"
+          GITHUB_TOKEN: ${{ secrets.STAABM_TOKEN }}
         with:
           asset_content_type: "text/plain"
           asset_name: "cs2pr"
-          asset_path: "cs2pr"
-          upload_url: "${{ steps.create-release.outputs.upload_url }}"
+          asset_path: "cs2pr"  
+          upload_url: ${{ steps.release.outputs.upload_url }}
