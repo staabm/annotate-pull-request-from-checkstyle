@@ -28,5 +28,5 @@ jobs:
         with:
           asset_content_type: "text/plain"
           asset_name: "cs2pr"
-          asset_path: "cs2pr"  
+          asset_path: "cs2pr"
           upload_url: ${{ steps.release.outputs.upload_url }}
