@@ -102,6 +102,7 @@ exit($exit);
  * @param string $filename
  * @param int $line
  * @param string $message
+ * @param boolean $colorize
  */
 function annotateCheck($type, $filename, $line, $message, $colorize)
 {

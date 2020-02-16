@@ -11,9 +11,9 @@
  * https://github.com/staabm/annotate-pull-request-from-checkstyle
  */
 
-function testXml($xmlPath, $expectedExit, $expectedOutput = null)
+function testXml($xmlPath, $expectedExit, $expectedOutput = null, $options = '')
 {
-    exec('cat '.$xmlPath .' | php '. __DIR__ .'/../cs2pr 2>&1', $output, $exit);
+    exec('cat '.$xmlPath .' | php '. __DIR__ .'/../cs2pr '.$options.' 2>&1', $output, $exit);
     $output = implode("\n", $output);
 
     if ($exit != $expectedExit) {
@@ -42,6 +42,14 @@ testXml(__DIR__.'/fail/invalid.xml', 2, "Error: Start tag expected, '<' not foun
 testXml(__DIR__.'/fail/multiple-suites.xml', 2, "Error: Extra content at the end of the document on line 8, column 1\n\n" .file_get_contents(__DIR__.'/fail/multiple-suites.xml'));
 
 testXml(__DIR__.'/errors/minimal.xml', 1, file_get_contents(__DIR__.'/errors/minimal.expect'));
+testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/mixed.expect'));
+testXml(__DIR__.'/errors/warning-only.xml', 1, file_get_contents(__DIR__.'/errors/warning-only.expect'));
+
+testXml(__DIR__.'/errors/minimal.xml', 1, file_get_contents(__DIR__.'/errors/minimal.expect'), '--graceful-warnings');
+testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/mixed.expect'), '--graceful-warnings');
+testXml(__DIR__.'/errors/warning-only.xml', 0, file_get_contents(__DIR__.'/errors/warning-only.expect'), '--graceful-warnings');
+
+testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/mixed-colors.expect'), '--colorize');
 
 testXml(__DIR__.'/noerrors/only-header.xml', 0, file_get_contents(__DIR__.'/noerrors/only-header.expect'));
 testXml(__DIR__.'/noerrors/only-header-php-cs-fixer.xml', 0, file_get_contents(__DIR__.'/noerrors/only-header-php-cs-fixer.expect'));
