@@ -18,14 +18,43 @@ gc_disable();
 
 $version = '1.0.6-dev';
 
-if ($argc === 1) {
+// options
+$colorize = false;
+$gracefulWarnings = false;
+
+// parameters
+$params = [];
+foreach ($argv as $arg) {
+    if (substr($arg, 0, 2) === '--') {
+        $option = substr($arg, 2);
+        switch ($option) {
+        case 'graceful-warnings':
+            $gracefulWarnings = true;
+            break;
+        case 'colorize':
+            $colorize = true;
+            break;
+        default:
+            echo "Unknown option ".$option."\n";
+            exit(9);
+        }
+    } else {
+        $params[] = $arg;
+    }
+}
+
+if (count($params) === 1) {
     $xml = stream_get_contents(STDIN);
-} elseif ($argc === 2 && file_exists($argv[1])) {
-    $xml = file_get_contents($argv[1]);
+} elseif (count($params) === 2 && file_exists($params[1])) {
+    $xml = file_get_contents($params[1]);
 } else {
     echo "cs2pr $version\n";
     echo "Annotate a Github Pull Request based on a Checkstyle XML-report.\n";
-    echo "Usage: ". $argv[0] ." <filename>\n";
+    echo "Usage: ". $params[0] ." [OPTION]... <filename>\n";
+    echo "\n";
+    echo "Option can be:\n";
+    echo "  --graceful-warnings   Don't exit with error codes if there are only warnings.\n";
+    echo "  --colorize            Colorize the output (still compatible with Github Annotations)\n";
     exit(9);
 }
 
@@ -58,8 +87,11 @@ foreach ($root as $file) {
         $line = (string) $error['line'];
         $message = (string) $error['message'];
 
-        annotateCheck(annotateType($type), relativePath($filename), $line, $message);
-        $exit = 1;
+        annotateCheck(annotateType($type), relativePath($filename), $line, $message, $colorize);
+
+        if (!$gracefulWarnings || $type === 'error') {
+            $exit = 1;
+        }
     }
 }
 
@@ -71,9 +103,15 @@ exit($exit);
  * @param int $line
  * @param string $message
  */
-function annotateCheck($type, $filename, $line, $message)
+function annotateCheck($type, $filename, $line, $message, $colorize=false)
 {
+    if ($colorize) {
+        echo "\033[".($type==='error' ? '91' : '93')."m\n";
+    }
     echo "::{$type} file={$filename},line={$line}::{$message}\n";
+    if ($colorize) {
+        echo "\033[0m";
+    }
 }
 
 function relativePath($path)
