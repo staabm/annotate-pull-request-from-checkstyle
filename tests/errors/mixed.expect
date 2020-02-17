@@ -1,0 +1,3 @@
+::error file=redaxo\src\addons\2factor_auth\boot.php,line=6::Call to static method getInstance() on an unknown class rex_one_time_password.
+::warning file=redaxo\src\addons\2factor_auth\boot.php,line=9::Call to static method getInstance() on an unknown class rex_minibar.
+::error file=redaxo\src\addons\2factor_auth\lib\one_time_password.php,line=0::Class rex_one_time_password was not found while trying to analyse it - autoloading is probably not configured properly.
