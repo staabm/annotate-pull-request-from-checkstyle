@@ -87,9 +87,10 @@ foreach ($root as $file) {
         $line = (string) $error['line'];
         $message = (string) $error['message'];
 
-        annotateCheck(annotateType($type), relativePath($filename), $line, $message, $colorize);
+        $annotateType = annotateType($type);
+        annotateCheck($annotateType, relativePath($filename), $line, $message, $colorize);
 
-        if (!$gracefulWarnings || $type === 'error') {
+        if (!$gracefulWarnings || $annotateType === 'error') {
             $exit = 1;
         }
     }
