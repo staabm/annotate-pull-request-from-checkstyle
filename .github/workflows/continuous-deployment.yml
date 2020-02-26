@@ -3,9 +3,9 @@
 name: "Continuous Deployment"
 
 on:
-  push:
-    tags:
-      - "**"
+  release:
+    types:
+      - published
 
 jobs:
   release:
