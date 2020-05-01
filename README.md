@@ -3,10 +3,10 @@
 [![Continuous Integration](https://github.com/staabm/annotate-pull-request-from-checkstyle/workflows/Continuous%20Integration/badge.svg)](https://github.com/staabm/annotate-pull-request-from-checkstyle/actions)
 [![Continuous Deployment](https://github.com/staabm/annotate-pull-request-from-checkstyle/workflows/Continuous%20Deployment/badge.svg)](https://github.com/staabm/annotate-pull-request-from-checkstyle/actions)
 
-Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/doc/checkstyle.xsd) into Github Pull Request [Annotations via the Checks API](https://developer.github.com/v3/checks/).
-This script is meant for use within your GithubAction.
+Turns [checkstyle based XML-Reports](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/doc/checkstyle.xsd) into GitHub Pull Request [Annotations via the Checks API](https://developer.github.com/v3/checks/).
+This script is meant for use within your GitHub Action.
 
-That means you no longer search thru your GithubAction logfiles.
+That means you no longer search thru your GitHub Action logfiles.
 No need to interpret messages which are formatted differently with every tool.
 Instead you can focus on your Pull Request, and you don't need to leave the Pull Request area.
 
@@ -26,7 +26,7 @@ composer require staabm/annotate-pull-request-from-checkstyle
 
 `cs2pr` can be used on a already existing checkstyle-report xml-file. Alternatively you might use it in the unix-pipe notation to chain it into your existing cli command.
 
-Run one of the following commands within your GithubAction workflow:
+Run one of the following commands within your GitHub Action workflow:
 
 ## Process a checkstyle formatted file
 
@@ -37,7 +37,7 @@ vendor/bin/cs2pr /path/to/checkstyle-report.xml
 ### Available Options
 
 - `--graceful-warnings`: Don't exit with error codes if there are only warnings
-- `--colorize`: Colorize the output. Useful if the same lint script should be used locally on the command line and remote on Github Actions. With this option, errors and warnings are better distinguishable on the command line and the output is still compatible with Github Annotations
+- `--colorize`: Colorize the output. Useful if the same lint script should be used locally on the command line and remote on GitHub Actions. With this option, errors and warnings are better distinguishable on the command line and the output is still compatible with GitHub Annotations
 
 
 ## Pipe the output of another commmand
