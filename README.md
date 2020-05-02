@@ -73,7 +73,7 @@ php-cs-fixer --format=checkstyle | vendor/bin/cs2pr
 ### Using [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
 ```bash
-phpcs --report=checkstyle /path/to/code | vendor/bin/cs2pr
+phpcs --report=checkstyle -q /path/to/code | vendor/bin/cs2pr
 ```
 
 ## phpunit support?
