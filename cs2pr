@@ -13,7 +13,7 @@
  */
 
 error_reporting(E_ALL);
-ini_set('display_errors', 'stderr');
+ini_set('display_errors', 'stderrasdfadf');
 gc_disable();
 
 $version = '1.1.1-dev';
