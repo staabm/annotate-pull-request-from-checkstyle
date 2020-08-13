@@ -107,6 +107,10 @@ exit($exit);
  */
 function annotateCheck($type, $filename, $line, $message, $colorize)
 {
+    // newlines need to be encoded
+    // see https://github.com/actions/starter-workflows/issues/68#issuecomment-581479448
+    $message = str_replace("\n", '%0A', $message);
+    
     if ($colorize) {
         echo "\033[".($type==='error' ? '91' : '93')."m\n";
     }
