@@ -55,6 +55,6 @@ jobs:
         with:
           coverage: "none"
           extensions: "simplexml"
-          php-version: "7.0"
+          php-version: "${{ matrix.php-version }}"
 
       - run: php tests/tests.php
