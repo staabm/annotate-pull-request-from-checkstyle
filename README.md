@@ -15,6 +15,8 @@ Instead you can focus on your Pull Request, and you don't need to leave the Pull
 ![Context Example](https://github.com/mheap/phpunit-github-actions-printer/blob/master/phpunit-printer-context.png?raw=true)
 _Images from https://github.com/mheap/phpunit-github-actions-printer_
 
+[DEMO - See how Pull Request warnings/errors are rendered in action](https://github.com/staabm/gh-annotation-example/pull/1/files)
+
 # Installation
 
 Install the binary via composer
