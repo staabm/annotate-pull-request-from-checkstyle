@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'stderr');
 gc_disable();
 
-$version = '1.3.2-dev';
+$version = '1.4.0';
 
 // options
 $colorize = false;
@@ -127,5 +127,11 @@ function relativePath($path)
 
 function annotateType($type)
 {
-    return in_array($type, ['error', 'failure']) ? 'error' : 'warning';
+    if (in_array($type, ['error', 'failure'])) {
+        return 'error';
+    }
+    if (in_array($type, ['info', 'notice'])) {
+        return 'notice';
+    }
+    return 'warning';
 }
