@@ -112,6 +112,7 @@ function annotateCheck($type, $filename, $line, $message, $colorize)
     $message = str_replace("\n", '%0A', $message);
     
     if ($colorize) {
+        // colortable on https://raw.githubusercontent.com/dslackw/images/master/colored/256_colors_bg.png
         echo "\033[".($type==='error' ? '91' : '93')."m\n";
     }
     echo "::{$type} file={$filename},line={$line}::{$message}\n";
@@ -127,5 +128,11 @@ function relativePath($path)
 
 function annotateType($type)
 {
-    return in_array($type, ['error', 'failure']) ? 'error' : 'warning';
+    if(in_array($type, ['error', 'failure'])) {
+        return 'error';
+    }
+    if(in_array($type, ['info', 'notice'])) {
+        return 'notice';
+    }
+    return 'warning';
 }
