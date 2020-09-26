@@ -127,10 +127,10 @@ function relativePath($path)
 
 function annotateType($type)
 {
-    if(in_array($type, ['error', 'failure'])) {
+    if (in_array($type, ['error', 'failure'])) {
         return 'error';
     }
-    if(in_array($type, ['info', 'notice'])) {
+    if (in_array($type, ['info', 'notice'])) {
         return 'notice';
     }
     return 'warning';
