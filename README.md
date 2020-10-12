@@ -69,7 +69,7 @@ psalm --output-format=github
 ### Using [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 ```bash
-php-cs-fixer --format=checkstyle | vendor/bin/cs2pr
+php-cs-fixer fix --dry-run --format=checkstyle | vendor/bin/cs2pr
 ```
 
 ### Using [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
