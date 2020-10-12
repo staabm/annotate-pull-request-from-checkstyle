@@ -54,13 +54,19 @@ Examples can bee seen below:
 phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 ```
 
+_Phpstan 0.12.32 introduced native github actions support, therefore you might use this instead:_
+
+```bash
+phpstan analyse
+```
+
 ### Using [Psalm](https://github.com/vimeo/psalm)
 
 ```bash
 psalm --output-format=checkstyle | vendor/bin/cs2pr
 ```
 
-_Psalm even supports the required format natively, therefore you might even use this instead:_
+_Psalm even supports the required format natively, therefore you might use this instead:_
 
 ```bash
 psalm --output-format=github
