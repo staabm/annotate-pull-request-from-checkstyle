@@ -33,7 +33,7 @@ Run one of the following commands within your GitHub Action workflow:
 ## Process a checkstyle formatted file
 
 ```bash
-vendor/bin/cs2pr /path/to/checkstyle-report.xml
+cs2pr /path/to/checkstyle-report.xml
 ```
 
 ### Available Options
@@ -51,7 +51,7 @@ Examples can bee seen below:
 ### Using [PHPStan](https://github.com/phpstan/phpstan)
 
 ```bash
-phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
+phpstan analyse --error-format=checkstyle | cs2pr
 ```
 
 _Phpstan 0.12.32 introduced native github actions support, therefore you might use this instead:_
@@ -63,7 +63,7 @@ phpstan analyse
 ### Using [Psalm](https://github.com/vimeo/psalm)
 
 ```bash
-psalm --output-format=checkstyle | vendor/bin/cs2pr
+psalm --output-format=checkstyle | cs2pr
 ```
 
 _Psalm even supports the required format natively, therefore you might use this instead:_
@@ -75,13 +75,13 @@ psalm --output-format=github
 ### Using [PHP Coding Standards Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 ```bash
-php-cs-fixer fix --dry-run --format=checkstyle | vendor/bin/cs2pr
+php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 ```
 
 ### Using [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
 ```bash
-phpcs --report=checkstyle -q /path/to/code | vendor/bin/cs2pr
+phpcs --report=checkstyle -q /path/to/code | cs2pr
 ```
 
 ## phpunit support?
