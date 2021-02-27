@@ -84,6 +84,18 @@ php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 phpcs --report=checkstyle -q /path/to/code | cs2pr
 ```
 
+Note: the `-q` option means that no output will be shown in the action logs anymore.
+To see the output both in the PR as well as in the action logs, use two steps, like so:
+
+```yaml
+      - name: Check PHP code style
+        continue-on-error: true
+        run: phpcs --report-full --report-checkstyle=./phpcs-report.xml
+
+      - name: Show PHPCS results in PR
+        run: cs2pr ./phpcs-report.xml
+```
+
 ## phpunit support?
 
 PHPUnit does not support checkstyle, therefore `cs2pr` will not work for you.
