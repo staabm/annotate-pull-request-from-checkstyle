@@ -84,6 +84,12 @@ php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 phpcs --report=checkstyle -q /path/to/code | cs2pr
 ```
 
+### Using [PHP Parallel Lint](https://github.com/php-parallel-lint/PHP-Parallel-Lint/)
+
+```bash
+vendor/bin/parallel-lint . --exclude vendor --checkstyle | cs2pr
+```
+
 ## phpunit support?
 
 PHPUnit does not support checkstyle, therefore `cs2pr` will not work for you.
