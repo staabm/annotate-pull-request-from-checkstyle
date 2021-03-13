@@ -9,6 +9,8 @@ on:
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
+    if: github.repository.name == "staabm/annotate-pull-request-from-checkstyle"
+    
     steps:
     - uses: actions/checkout@v1
       with:
