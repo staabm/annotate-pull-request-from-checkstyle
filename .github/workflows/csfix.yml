@@ -9,6 +9,9 @@ on:
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
+    # dont run on forks. requires commit access
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    
     steps:
     - uses: actions/checkout@v1
       with:
