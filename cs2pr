@@ -23,7 +23,7 @@ $colorize = false;
 $gracefulWarnings = false;
 
 // parameters
-$params = [];
+$params = array();
 foreach ($argv as $arg) {
     if (substr($arg, 0, 2) === '--') {
         $option = substr($arg, 2);
@@ -127,10 +127,10 @@ function relativePath($path)
 
 function annotateType($type)
 {
-    if (in_array($type, ['error', 'failure'])) {
+    if (in_array($type, array('error', 'failure'))) {
         return 'error';
     }
-    if (in_array($type, ['info', 'notice'])) {
+    if (in_array($type, array('info', 'notice'))) {
         return 'notice';
     }
     return 'warning';
