@@ -9,7 +9,8 @@ on:
 jobs:
   php-cs-fixer:
     runs-on: ubuntu-latest
-    if: github.repository.name == "staabm/annotate-pull-request-from-checkstyle"
+    # dont run on forks. requires commit access
+    if: github.event.pull_request.head.repo.full_name == github.repository
     
     steps:
     - uses: actions/checkout@v1
