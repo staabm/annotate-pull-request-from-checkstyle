@@ -2,7 +2,8 @@
   "name": "staabm/annotate-pull-request-from-checkstyle",
   "license" : "MIT",
   "require" : {
-    "php"          : "^7.0 || ^8.0",
+    "php"          : "^5.3 || ^7.0 || ^8.0",
+    "ext-libxml" : "*",
     "ext-simplexml" : "*"
   },
   "require-dev" : {

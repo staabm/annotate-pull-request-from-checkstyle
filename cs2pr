@@ -23,7 +23,7 @@ $colorize = false;
 $gracefulWarnings = false;
 
 // parameters
-$params = [];
+$params = array();
 foreach ($argv as $arg) {
     if (substr($arg, 0, 2) === '--') {
         $option = substr($arg, 2);
@@ -73,7 +73,7 @@ if ($root === false) {
         fwrite(STDERR, 'Error: Unknown error. Expecting checkstyle formatted xml input.' ."\n\n");
     }
     fwrite(STDERR, $xml);
-    
+
     exit(2);
 }
 
@@ -110,7 +110,7 @@ function annotateCheck($type, $filename, $line, $message, $colorize)
     // newlines need to be encoded
     // see https://github.com/actions/starter-workflows/issues/68#issuecomment-581479448
     $message = str_replace("\n", '%0A', $message);
-    
+
     if ($colorize) {
         echo "\033[".($type==='error' ? '91' : '93')."m\n";
     }
@@ -127,10 +127,10 @@ function relativePath($path)
 
 function annotateType($type)
 {
-    if (in_array($type, ['error', 'failure'])) {
+    if (in_array($type, array('error', 'failure'))) {
         return 'error';
     }
-    if (in_array($type, ['info', 'notice'])) {
+    if (in_array($type, array('info', 'notice'))) {
         return 'notice';
     }
     return 'warning';
