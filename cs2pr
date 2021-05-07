@@ -21,6 +21,7 @@ $version = '1.5.1-dev';
 // options
 $colorize = false;
 $gracefulWarnings = false;
+$noticeAsWarning = false;
 
 // parameters
 $params = array();
@@ -33,6 +34,9 @@ foreach ($argv as $arg) {
             break;
         case 'colorize':
             $colorize = true;
+            break;
+        case 'notices-as-warnings':
+            $noticeAsWarning = true;
             break;
         default:
             echo "Unknown option ".$option."\n";
@@ -55,6 +59,7 @@ if (count($params) === 1) {
     echo "Supported options:\n";
     echo "  --graceful-warnings   Don't exit with error codes if there are only warnings.\n";
     echo "  --colorize            Colorize the output (still compatible with Github Annotations)\n";
+    echo "  --notices-as-warnings Convert notices to warnings.\n";
     exit(9);
 }
 
@@ -87,7 +92,7 @@ foreach ($root as $file) {
         $line = (string) $error['line'];
         $message = (string) $error['message'];
 
-        $annotateType = annotateType($type);
+        $annotateType = annotateType($type, $noticeAsWarning);
         annotateCheck($annotateType, relativePath($filename), $line, $message, $colorize);
 
         if (!$gracefulWarnings || $annotateType === 'error') {
@@ -125,12 +130,12 @@ function relativePath($path)
     return str_replace(getcwd().'/', '', $path);
 }
 
-function annotateType($type)
+function annotateType($type, $noticeAsWarning)
 {
     if (in_array($type, array('error', 'failure'))) {
         return 'error';
     }
-    if (in_array($type, array('info', 'notice'))) {
+    if ( !$noticeAsWarning && in_array($type, array('info', 'notice'))) {
         return 'notice';
     }
     return 'warning';
