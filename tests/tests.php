@@ -49,6 +49,9 @@ testXml(__DIR__.'/errors/minimal.xml', 1, file_get_contents(__DIR__.'/errors/min
 testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/mixed.expect'), '--graceful-warnings');
 testXml(__DIR__.'/errors/warning-only.xml', 0, file_get_contents(__DIR__.'/errors/warning-only.expect'), '--graceful-warnings');
 
+testXml(__DIR__.'/errors/notices.xml', 1, file_get_contents(__DIR__.'/errors/notices.expect'));
+testXml(__DIR__.'/errors/notices.xml', 1, file_get_contents(__DIR__.'/errors/notices-as-warnings.expect'), '--notices-as-warnings');
+
 testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/mixed-colors.expect'), '--colorize');
 
 testXml(__DIR__.'/noerrors/only-header.xml', 0, file_get_contents(__DIR__.'/noerrors/only-header.expect'));
