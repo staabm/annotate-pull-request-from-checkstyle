@@ -135,7 +135,7 @@ function annotateType($type, $noticeAsWarning)
     if (in_array($type, array('error', 'failure'))) {
         return 'error';
     }
-    if ( !$noticeAsWarning && in_array($type, array('info', 'notice'))) {
+    if (!$noticeAsWarning && in_array($type, array('info', 'notice'))) {
         return 'notice';
     }
     return 'warning';
