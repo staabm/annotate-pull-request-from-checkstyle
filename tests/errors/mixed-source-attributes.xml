@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<checkstyle version="6.5">
+  <file name="test/phpunit/Traits/BuildingPermissionIdAwareTraitTest.php">
+    <error line="13" severity="error" message="Call to undeclared method \PHPUnit\Framework\MockObject\MockObject::getPermissionIds" source="PhanUndeclaredMethod"/>
+  </file>
+  <file name="test/phpunit/Utils/Cidr/MultiCidrMatchTest.php">
+    <error line="12" severity="warning" message="Reference to undeclared class \CIDRmatch\CIDRmatch" source="PhanUndeclaredClassReference"/>
+    <error line="21" severity="warning" message="Argument 2 ($CIDRmatch) is $cidr of type \PHPUnit\Framework\MockObject\MockObject|\PHPUnit_Framework_MockObject_MockObject but \Utils\Cidr\MultiCidrMatch::__construct() takes \CIDRmatch\CIDRmatch defined at application/classes/Utils/Cidr/MultiCidrMatch.php:20" source="PhanTypeMismatchArgument"/>
+    <error line="28" severity="warning" message="Reference to undeclared class \CIDRmatch\CIDRmatch" source="PhanUndeclaredClassReference"/>
+    <error line="38" severity="warning" message="Argument 2 ($CIDRmatch) is $cidr of type \PHPUnit\Framework\MockObject\MockObject|\PHPUnit_Framework_MockObject_MockObject but \Utils\Cidr\MultiCidrMatch::__construct() takes \CIDRmatch\CIDRmatch defined at application/classes/Utils/Cidr/MultiCidrMatch.php:20" source="PhanTypeMismatchArgument"/>
+    <error line="54" severity="error" message="Call to undeclared method \PHPUnit\Framework\MockObject\MockObject::matchAny"/>
+    <error line="69" severity="error" message="Call to undeclared method \PHPUnit\Framework\MockObject\MockObject::matchAny"/>
+  </file>
+</checkstyle>

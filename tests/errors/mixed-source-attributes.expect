@@ -1,0 +1,7 @@
+::error file=test/phpunit/Traits/BuildingPermissionIdAwareTraitTest.php,line=13::PhanUndeclaredMethod: Call to undeclared method \PHPUnit\Framework\MockObject\MockObject::getPermissionIds
+::warning file=test/phpunit/Utils/Cidr/MultiCidrMatchTest.php,line=12::PhanUndeclaredClassReference: Reference to undeclared class \CIDRmatch\CIDRmatch
+::warning file=test/phpunit/Utils/Cidr/MultiCidrMatchTest.php,line=21::PhanTypeMismatchArgument: Argument 2 ($CIDRmatch) is $cidr of type \PHPUnit\Framework\MockObject\MockObject|\PHPUnit_Framework_MockObject_MockObject but \Utils\Cidr\MultiCidrMatch::__construct() takes \CIDRmatch\CIDRmatch defined at application/classes/Utils/Cidr/MultiCidrMatch.php:20
+::warning file=test/phpunit/Utils/Cidr/MultiCidrMatchTest.php,line=28::PhanUndeclaredClassReference: Reference to undeclared class \CIDRmatch\CIDRmatch
+::warning file=test/phpunit/Utils/Cidr/MultiCidrMatchTest.php,line=38::PhanTypeMismatchArgument: Argument 2 ($CIDRmatch) is $cidr of type \PHPUnit\Framework\MockObject\MockObject|\PHPUnit_Framework_MockObject_MockObject but \Utils\Cidr\MultiCidrMatch::__construct() takes \CIDRmatch\CIDRmatch defined at application/classes/Utils/Cidr/MultiCidrMatch.php:20
+::error file=test/phpunit/Utils/Cidr/MultiCidrMatchTest.php,line=54::Call to undeclared method \PHPUnit\Framework\MockObject\MockObject::matchAny
+::error file=test/phpunit/Utils/Cidr/MultiCidrMatchTest.php,line=69::Call to undeclared method \PHPUnit\Framework\MockObject\MockObject::matchAny
