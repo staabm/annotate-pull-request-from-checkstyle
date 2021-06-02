@@ -40,6 +40,8 @@ cs2pr /path/to/checkstyle-report.xml
 
 - `--graceful-warnings`: Don't exit with error codes if there are only warnings
 - `--colorize`: Colorize the output. Useful if the same lint script should be used locally on the command line and remote on GitHub Actions. With this option, errors and warnings are better distinguishable on the command line and the output is still compatible with GitHub Annotations
+- `--notices-as-warnings` Converts notices to warnings. This can be useful because GitHub does not annotate notices. 
+- `--prepend-source` When the checkstyle provider provides a `source` attribute, prepend the source to the output message. 
 
 
 ## Pipe the output of another commmand
