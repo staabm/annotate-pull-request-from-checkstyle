@@ -124,6 +124,8 @@ function annotateCheck($type, $filename, $line, $message, $colorize)
 {
     // newlines need to be encoded
     // see https://github.com/actions/starter-workflows/issues/68#issuecomment-581479448
+    $message = str_replace("%", '%25', $message);
+    $message = str_replace("\r", '%0D', $message);
     $message = str_replace("\n", '%0A', $message);
 
     if ($colorize) {
