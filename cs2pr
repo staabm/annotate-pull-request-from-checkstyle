@@ -144,6 +144,7 @@ function relativePath($path)
 
 function annotateType($type, $noticeAsWarning)
 {
+    $type = strtolower($type);
     if (in_array($type, array('error', 'failure'))) {
         return 'error';
     }

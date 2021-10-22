@@ -58,3 +58,5 @@ testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/mixed
 
 testXml(__DIR__.'/noerrors/only-header.xml', 0, file_get_contents(__DIR__.'/noerrors/only-header.expect'));
 testXml(__DIR__.'/noerrors/only-header-php-cs-fixer.xml', 0, file_get_contents(__DIR__.'/noerrors/only-header-php-cs-fixer.expect'));
+
+testXml(__DIR__.'/errors/mixed-case.xml', 1, file_get_contents(__DIR__.'/errors/mixed-case.expect'));
