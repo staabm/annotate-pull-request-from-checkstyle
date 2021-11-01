@@ -122,11 +122,8 @@ exit($exit);
  */
 function annotateCheck($type, $filename, $line, $message, $colorize)
 {
-    // newlines need to be encoded
-    // see https://github.com/actions/starter-workflows/issues/68#issuecomment-581479448
-    $message = str_replace("%", '%25', $message);
-    $message = str_replace("\r", '%0D', $message);
-    $message = str_replace("\n", '%0A', $message);
+    $message = escapeData($message);
+    $filename = escapeProperty($filename);
 
     if ($colorize) {
         echo "\033[".($type==='error' ? '91' : '93')."m\n";
@@ -152,4 +149,34 @@ function annotateType($type, $noticeAsWarning)
         return 'notice';
     }
     return 'warning';
+}
+
+/**
+ * @param string $data
+ * @return string
+ */
+function escapeData($data)
+{
+    // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L80-L85
+    $data = str_replace("%", '%25', $data);
+    $data = str_replace("\r", '%0D', $data);
+    $data = str_replace("\n", '%0A', $data);
+
+    return $data;
+}
+
+/**
+ * @param string $property
+ * @return string
+ */
+function escapeProperty($property)
+{
+    // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L87-L94
+    $property = str_replace("%", '%25', $property);
+    $property = str_replace("\r", '%0D', $property);
+    $property = str_replace("\n", '%0A', $property);
+    $property = str_replace(":", '%3A', $property);
+    $property = str_replace(",", '%2C', $property);
+
+    return $property;
 }
