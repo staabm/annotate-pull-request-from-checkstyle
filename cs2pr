@@ -151,7 +151,8 @@ function annotateType($type, $noticeAsWarning)
     return 'warning';
 }
 
-function escapeData(string $data):string {
+function escapeData(string $data):string
+{
     // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L80-L85
     $data = str_replace("%", '%25', $data);
     $data = str_replace("\r", '%0D', $data);
@@ -160,7 +161,8 @@ function escapeData(string $data):string {
     return $data;
 }
 
-function escapeProperty(string $property):string {
+function escapeProperty(string $property):string
+{
     // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L87-L94
     $property = str_replace("%", '%25', $property);
     $property = str_replace("\r", '%0D', $property);
@@ -170,4 +172,3 @@ function escapeProperty(string $property):string {
 
     return $property;
 }
-
