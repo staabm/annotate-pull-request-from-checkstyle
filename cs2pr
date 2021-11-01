@@ -151,32 +151,32 @@ function annotateType($type, $noticeAsWarning)
     return 'warning';
 }
 
-    /**
-     * @param string $data
-     * @return string
-     */
-    function escapeData($data)
-    {
-        // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L80-L85
-        $data = str_replace("%", '%25', $data);
-        $data = str_replace("\r", '%0D', $data);
-        $data = str_replace("\n", '%0A', $data);
+/**
+ * @param string $data
+ * @return string
+ */
+function escapeData($data)
+{
+    // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L80-L85
+    $data = str_replace("%", '%25', $data);
+    $data = str_replace("\r", '%0D', $data);
+    $data = str_replace("\n", '%0A', $data);
 
-        return $data;
-    }
+    return $data;
+}
 
-    /**
-     * @param string $property
-     * @return string
-     */
-    function escapeProperty($property)
-    {
-        // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L87-L94
-        $property = str_replace("%", '%25', $property);
-        $property = str_replace("\r", '%0D', $property);
-        $property = str_replace("\n", '%0A', $property);
-        $property = str_replace(":", '%3A', $property);
-        $property = str_replace(",", '%2C', $property);
+/**
+ * @param string $property
+ * @return string
+ */
+function escapeProperty($property)
+{
+    // see https://github.com/actions/toolkit/blob/4f7fb6513a355689f69f0849edeb369a4dc81729/packages/core/src/command.ts#L87-L94
+    $property = str_replace("%", '%25', $property);
+    $property = str_replace("\r", '%0D', $property);
+    $property = str_replace("\n", '%0A', $property);
+    $property = str_replace(":", '%3A', $property);
+    $property = str_replace(",", '%2C', $property);
 
-        return $property;
-    }
+    return $property;
+}
