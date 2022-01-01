@@ -22,6 +22,7 @@ $version = '1.7.2-dev';
 $colorize = false;
 $gracefulWarnings = false;
 $noticeAsWarning = false;
+$prependFilename = false;
 $prependSource = false;
 
 // parameters
@@ -35,6 +36,9 @@ foreach ($argv as $arg) {
             break;
         case 'colorize':
             $colorize = true;
+            break;
+        case 'prepend-filename':
+            $prependFilename = true;
             break;
         case 'prepend-source':
             $prependSource = true;
@@ -64,6 +68,7 @@ if (count($params) === 1) {
     echo "  --graceful-warnings   Don't exit with error codes if there are only warnings.\n";
     echo "  --colorize            Colorize the output (still compatible with Github Annotations)\n";
     echo "  --notices-as-warnings Convert notices to warnings (Github does not annotate notices otherwise).\n";
+    echo "  --prepend-filename    Prepend error 'filename' attribute to the message.\n";
     echo "  --prepend-source      Prepend error 'source' attribute to the message.\n";
     exit(9);
 }
@@ -100,6 +105,10 @@ foreach ($root as $file) {
 
         if ($prependSource && $source) {
             $message = $source.': '.$message;
+        }
+
+        if ($prependFilename && $filename) {
+            $message = $filename.': '.$message;
         }
 
         $annotateType = annotateType($type, $noticeAsWarning);
