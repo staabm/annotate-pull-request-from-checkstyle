@@ -108,7 +108,7 @@ foreach ($root as $file) {
         }
 
         if ($prependFilename && $filename) {
-            $message = $filename.': '.$message;
+            $message = filenameOnly($filename).': '.$message;
         }
 
         $annotateType = annotateType($type, $noticeAsWarning);
@@ -188,4 +188,12 @@ function escapeProperty($property)
     $property = str_replace(",", '%2C', $property);
 
     return $property;
+}
+
+/**
+ * Get the filename only from a filepath. Built to work across windows & linux.
+ */
+function filenameOnly($filepath)
+{
+    return basename(str_replace("\\", "/", $filepath));
 }

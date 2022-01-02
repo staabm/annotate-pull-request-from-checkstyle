@@ -7,4 +7,7 @@
     <file name="redaxo\src\addons\2factor_auth\lib\one_time_password.php">
         <error line="0" column="1" severity="error" message="Class rex_one_time_password was not found while trying to analyse it - autoloading is probably not configured properly." />
     </file>
+    <file name="redaxo/src/addons/2factor_auth/lib/linux_filepath.php">
+        <error line="0" column="1" severity="error" message="Class rex_one_time_password was not found while trying to analyse it - autoloading is probably not configured properly." />
+    </file>
 </checkstyle>
