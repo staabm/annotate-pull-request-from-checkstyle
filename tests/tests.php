@@ -52,6 +52,7 @@ testXml(__DIR__.'/errors/warning-only.xml', 0, file_get_contents(__DIR__.'/error
 testXml(__DIR__.'/errors/notices.xml', 1, file_get_contents(__DIR__.'/errors/notices.expect'));
 testXml(__DIR__.'/errors/notices.xml', 1, file_get_contents(__DIR__.'/errors/notices-as-warnings.expect'), '--notices-as-warnings');
 
+testXml(__DIR__.'/errors/prepend-filename.xml', 1, file_get_contents(__DIR__.'/errors/prepend-filename.expect'), '--prepend-filename');
 testXml(__DIR__.'/errors/mixed-source-attributes.xml', 1, file_get_contents(__DIR__.'/errors/mixed-source-attributes.expect'), '--prepend-source');
 
 testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/mixed-colors.expect'), '--colorize');
