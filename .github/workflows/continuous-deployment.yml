@@ -12,8 +12,6 @@ jobs:
     name: "Release"
 
     runs-on: "ubuntu-latest"
-    permissions:
-        contents: write
 
     steps:
       - name: "Checkout"
@@ -26,7 +24,7 @@ jobs:
       - name: "Upload cs2pr"
         uses: "actions/upload-release-asset@v1"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.STAABM_TOKEN }}
         with:
           asset_content_type: "text/plain"
           asset_name: "cs2pr"
