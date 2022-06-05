@@ -24,6 +24,11 @@ Install the binary via composer
 composer require staabm/annotate-pull-request-from-checkstyle
 ```
 
+# 💌 Give back some love
+
+[Consider supporting the project](https://github.com/sponsors/staabm), so we can make this tool even better even faster for everyone.
+
+
 # Example Usage
 
 `cs2pr` can be used on a already existing checkstyle-report xml-file. Alternatively you might use it in the unix-pipe notation to chain it into your existing cli command.
