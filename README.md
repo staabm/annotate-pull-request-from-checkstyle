@@ -24,7 +24,7 @@ Install the binary via composer
 composer require staabm/annotate-pull-request-from-checkstyle
 ```
 
-# 💌 Give back some love
+## 💌 Give back some love
 
 [Consider supporting the project](https://github.com/sponsors/staabm), so we can make this tool even better even faster for everyone.
 
