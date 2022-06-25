@@ -62,6 +62,7 @@ if (count($params) === 1) {
 } else {
     echo "cs2pr $version\n";
     echo "Annotate a Github Pull Request based on a Checkstyle XML-report.\n";
+    echo "https://github.com/staabm/annotate-pull-request-from-checkstyle\n\n";
     echo "Usage: ". $params[0] ." [OPTION]... <filename>\n";
     echo "\n";
     echo "Supported options:\n";
