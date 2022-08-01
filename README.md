@@ -111,6 +111,25 @@ To see the output both in the PR as well as in the action logs, use two steps, l
 vendor/bin/parallel-lint . --exclude vendor --checkstyle | cs2pr
 ```
 
+### Using [Laravel Pint](https://github.com/laravel/pint)
+
+```yaml
+- name: Show Pint results in PR
+run: pint --test --format=checkstyle | cs2pr
+```
+
+Note: if you want to have both logs and annotations you need to run `pint` twice:
+
+```yaml
+- name: Check PHP code style
+id: cs-check
+run: pint --test
+
+- name: Generate Annotations on CS errors
+if: failure() && steps.cs-check.outcome != 'success'
+run: pint --test --format=checkstyle | cs2pr
+```
+
 ## phpunit support?
 
 PHPUnit does not support checkstyle, therefore `cs2pr` will not work for you.
