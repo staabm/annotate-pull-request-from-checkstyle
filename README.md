@@ -98,10 +98,11 @@ To see the output both in the PR as well as in the action logs, use two steps, l
 
 ```yaml
       - name: Check PHP code style
-        continue-on-error: true
+        id: phpcs
         run: phpcs --report-full --report-checkstyle=./phpcs-report.xml
 
       - name: Show PHPCS results in PR
+        if: ${{ always() && steps.phpcs.outcome == 'failure' }}
         run: cs2pr ./phpcs-report.xml
 ```
 
