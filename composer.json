@@ -1,6 +1,7 @@
 {
   "name": "staabm/annotate-pull-request-from-checkstyle",
   "license" : "MIT",
+  "keywords": ["dev", "continous integration", "github actions"],
   "require" : {
     "php"          : "^5.3 || ^7.0 || ^8.0",
     "ext-libxml" : "*",
