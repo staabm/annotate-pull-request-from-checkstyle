@@ -21,7 +21,7 @@ _Images from https://github.com/mheap/phpunit-github-actions-printer_
 
 Install the binary via composer
 ```bash
-composer require staabm/annotate-pull-request-from-checkstyle
+composer require staabm/annotate-pull-request-from-checkstyle --dev
 ```
 
 ## 💌 Give back some love
