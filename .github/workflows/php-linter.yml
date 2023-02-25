@@ -24,10 +24,7 @@ jobs:
             php-version: 7.4
             coverage: none # disable xdebug, pcov
 
-      -   name: Composer install
-          uses: ramsey/composer-install@v2
-          with:
-            composer-options: --ansi --prefer-dist
+      -   run: composer require --dev php-parallel-lint/php-parallel-lint
 
       -   name: Lint PHP
           run: vendor/bin/parallel-lint cs2pr tests/
