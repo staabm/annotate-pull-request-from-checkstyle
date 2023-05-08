@@ -46,6 +46,9 @@ foreach ($argv as $arg) {
         case 'notices-as-warnings':
             $noticeAsWarning = true;
             break;
+        case 'errors-as-warnings':
+            $errorsAsWarnings = true;
+            break;
         default:
             echo "Unknown option ".$option."\n";
             exit(9);
@@ -113,7 +116,7 @@ foreach ($root as $file) {
             $message = filenameOnly($filename).': '.$message;
         }
 
-        $annotateType = annotateType($type, $noticeAsWarning);
+        $annotateType = annotateType($type, $noticeAsWarning, $errorsAsWarnings);
         annotateCheck($annotateType, relativePath($filename), $line, $message, $colorize);
 
         if (!$gracefulWarnings || $annotateType === 'error') {
@@ -150,10 +153,14 @@ function relativePath($path)
     return str_replace(getcwd().'/', '', $path);
 }
 
-function annotateType($type, $noticeAsWarning)
+function annotateType($type, $noticeAsWarning, $errorsAsWarnings)
 {
     $type = strtolower($type);
     if (in_array($type, array('error', 'failure'))) {
+        if ($errorsAsWarnings) {
+            return 'warning';
+        }
+        
         return 'error';
     }
     if (!$noticeAsWarning && in_array($type, array('info', 'notice'))) {
