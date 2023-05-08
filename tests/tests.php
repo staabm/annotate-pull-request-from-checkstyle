@@ -62,4 +62,4 @@ testXml(__DIR__.'/noerrors/only-header-php-cs-fixer.xml', 0, file_get_contents(_
 
 testXml(__DIR__.'/errors/mixed-case.xml', 1, file_get_contents(__DIR__.'/errors/mixed-case.expect'));
 
-testXml(__DIR__.'/errors/mixed.xml', 1, '', '--errors-as-warnings');
+testXml(__DIR__.'/errors/mixed.xml', 1, file_get_contents(__DIR__.'/errors/errors-as-warnings.expect'), '--errors-as-warnings');
