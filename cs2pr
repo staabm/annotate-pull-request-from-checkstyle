@@ -159,7 +159,7 @@ function annotateType($type, $noticeAsWarning, $errorsAsWarnings)
     $type = strtolower($type);
     if (in_array($type, array('error', 'failure'))) {
         if ($errorsAsWarnings) {
-            return 'info';
+            return 'warning';
         }
 
         return 'error';
