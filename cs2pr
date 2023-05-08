@@ -69,6 +69,7 @@ if (count($params) === 1) {
     echo "  --graceful-warnings   Don't exit with error codes if there are only warnings.\n";
     echo "  --colorize            Colorize the output (still compatible with Github Annotations)\n";
     echo "  --notices-as-warnings Convert notices to warnings (Github does not annotate notices otherwise).\n";
+    echo "  --errors-as-warnings  Convert errors to warnings.\n";
     echo "  --prepend-filename    Prepend error 'filename' attribute to the message.\n";
     echo "  --prepend-source      Prepend error 'source' attribute to the message.\n";
     exit(9);
