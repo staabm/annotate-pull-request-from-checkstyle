@@ -24,6 +24,7 @@ $gracefulWarnings = false;
 $noticeAsWarning = false;
 $prependFilename = false;
 $prependSource = false;
+$errorsAsWarnings = false;
 
 // parameters
 $params = array();
@@ -160,7 +161,7 @@ function annotateType($type, $noticeAsWarning, $errorsAsWarnings)
         if ($errorsAsWarnings) {
             return 'warning';
         }
-        
+
         return 'error';
     }
     if (!$noticeAsWarning && in_array($type, array('info', 'notice'))) {
