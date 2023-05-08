@@ -24,6 +24,7 @@ $gracefulWarnings = false;
 $noticeAsWarning = false;
 $prependFilename = false;
 $prependSource = false;
+$errorsAsWarnings = false;
 
 // parameters
 $params = array();
@@ -45,6 +46,9 @@ foreach ($argv as $arg) {
             break;
         case 'notices-as-warnings':
             $noticeAsWarning = true;
+            break;
+        case 'errors-as-warnings':
+            $errorsAsWarnings = true;
             break;
         default:
             echo "Unknown option ".$option."\n";
@@ -69,6 +73,7 @@ if (count($params) === 1) {
     echo "  --graceful-warnings   Don't exit with error codes if there are only warnings.\n";
     echo "  --colorize            Colorize the output (still compatible with Github Annotations)\n";
     echo "  --notices-as-warnings Convert notices to warnings (Github does not annotate notices otherwise).\n";
+    echo "  --errors-as-warnings  Downgrade errors to warnings.\n";
     echo "  --prepend-filename    Prepend error 'filename' attribute to the message.\n";
     echo "  --prepend-source      Prepend error 'source' attribute to the message.\n";
     exit(9);
@@ -112,7 +117,7 @@ foreach ($root as $file) {
             $message = filenameOnly($filename).': '.$message;
         }
 
-        $annotateType = annotateType($type, $noticeAsWarning);
+        $annotateType = annotateType($type, $noticeAsWarning, $errorsAsWarnings);
         annotateCheck($annotateType, relativePath($filename), $line, $message, $colorize);
 
         if (!$gracefulWarnings || $annotateType === 'error') {
@@ -149,10 +154,14 @@ function relativePath($path)
     return str_replace(getcwd().'/', '', $path);
 }
 
-function annotateType($type, $noticeAsWarning)
+function annotateType($type, $noticeAsWarning, $errorsAsWarnings)
 {
     $type = strtolower($type);
     if (in_array($type, array('error', 'failure'))) {
+        if ($errorsAsWarnings) {
+            return 'warning';
+        }
+
         return 'error';
     }
     if (!$noticeAsWarning && in_array($type, array('info', 'notice'))) {
