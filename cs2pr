@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'stderr');
 gc_disable();
 
-$version = '1.8.5-dev';
+$version = '1.8.5';
 
 // options
 $colorize = false;
