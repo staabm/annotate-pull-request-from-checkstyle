@@ -181,6 +181,14 @@ jobs:
                 vendor/bin/phpstan analyse --error-format=checkstyle | vendor/bin/cs2pr
 ```
 
+## Using cs2pr as a GitHub Action
+
+You can also use [`cs2pr` itself as a GitHub Action](https://github.com/staabm/annotate-pull-request-from-checkstyle-action). This is useful if you want to for instance use it for a project that does not use PHP or if you want to use it with a custom PHP installation.
+
+See the example at the [cs2pr GitHub Action repositiory](https://github.com/staabm/annotate-pull-request-from-checkstyle-action#readme).
+
+
+
 # Resources
 
 [GithubAction Problem Matchers](https://github.com/actions/toolkit/blob/master/docs/problem-matchers.md)
