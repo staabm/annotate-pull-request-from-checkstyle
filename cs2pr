@@ -105,7 +105,7 @@ foreach ($root as $file) {
 
     foreach ($file as $error) {
         $type = (string) $error['severity'];
-        $line = (string) $error['line'];
+        $line = (string) (isset($error['line']) ? $error['line'] : 1);
         $message = (string) $error['message'];
         $source = isset($error['source']) ? (string) $error['source'] : null;
 

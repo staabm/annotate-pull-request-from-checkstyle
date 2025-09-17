@@ -1,0 +1,3 @@
+::warning file=someFile.php,line=1::Found violation(s) of type: some_fixer_name_here_1
+::warning file=someFile.php,line=1::Found violation(s) of type: some_fixer_name_here_2
+::warning file=anotherFile.php,line=1::Found violation(s) of type: another_fixer_name_here
