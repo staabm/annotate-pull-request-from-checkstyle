@@ -86,7 +86,7 @@ psalm --output-format=github
 php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 ```
 
-### Using [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+### Using [PHP_CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer)
 
 ```bash
 phpcs --report=checkstyle -q /path/to/code | cs2pr
