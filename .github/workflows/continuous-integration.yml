@@ -16,10 +16,10 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2"
+        uses: "actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5" # v2
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@v2"
+        uses: "shivammathur/setup-php@c77c69f5c8897d89fe313f4b6dd4d768d6a1b3db" # v2
         with:
           coverage: "none"
           extensions: "simplexml"
@@ -54,10 +54,10 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2"
+        uses: "actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5" # v2
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@v2"
+        uses: "shivammathur/setup-php@c77c69f5c8897d89fe313f4b6dd4d768d6a1b3db" # v2
         with:
           coverage: "none"
           extensions: "simplexml"
