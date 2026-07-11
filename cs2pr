@@ -99,6 +99,8 @@ if ($root === false) {
 }
 
 $exit = 0;
+$errorCount = 0;
+$warningCount = 0;
 
 foreach ($root as $file) {
     $filename = (string)$file['name'];
@@ -120,11 +122,19 @@ foreach ($root as $file) {
         $annotateType = annotateType($type, $noticeAsWarning, $errorsAsWarnings);
         annotateCheck($annotateType, relativePath($filename), $line, $message, $colorize);
 
+        if ($annotateType === 'error') {
+            ++$errorCount;
+        } elseif ($annotateType === 'warning') {
+            ++$warningCount;
+        }
+
         if (!$gracefulWarnings || $annotateType === 'error') {
             $exit = 1;
         }
     }
 }
+
+fwrite(STDERR, "Processed errors: $errorCount; warnings: $warningCount.\n");
 
 exit($exit);
 
